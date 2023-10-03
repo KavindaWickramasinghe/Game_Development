@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Fight = Input.GetKeyDown(KeyCode.Space);
+        
 
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
@@ -53,10 +53,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
 
-        if (Fight) 
-        {
-            Fight = true;
-        }
+        
 
         UpdateAnimationState();
 
@@ -96,10 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (Fight)
-        {
-            state = MovementState.attack;
-        }
+        
         
         anim.SetInteger("state", (int)state);
     }
