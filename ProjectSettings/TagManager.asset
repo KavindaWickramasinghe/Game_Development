@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gem
   - Traps
+  - Enemy
   layers:
   - Default
   - TransparentFX

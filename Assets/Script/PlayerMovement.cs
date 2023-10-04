@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private SpriteRenderer sr;
     private Animator anim;
+   
+    
     
 
 
@@ -18,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 7f;
     [SerializeField] private float jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpbleGround;
-    private bool Fight;
+    [SerializeField] private GameObject mainPlayer;
+    
+  
     private float dirX = 0f;
     
 
@@ -35,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+       
+        
+        
         
     }
 
@@ -53,8 +60,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
 
-        
-
+        Flip();
         UpdateAnimationState();
 
 
@@ -68,17 +74,17 @@ public class PlayerMovement : MonoBehaviour
         MovementState state;
         if (dirX > 0)
         {
+            //Debug.Log(dirX);
             state = MovementState.run;
-            sr.flipX = true; // flip spite
-           
-
-
         }
+
         else if (dirX < 0)
-        {
+       {
+            // Debug.Log(dirX);
             state = MovementState.run;
-            sr.flipX=false;
+
            
+
         }
 
         else
@@ -113,14 +119,14 @@ public class PlayerMovement : MonoBehaviour
     // function created for filp the sprite but it doesn't work correctly
     void Flip()
     {
-        Vector3 scale = transform.localScale;
-        if (dirX < 0)
+        
+        if (dirX == 1f)
         {
-            transform.localScale = new Vector3(scale.x * -1, scale.y, scale.z);
+            mainPlayer.transform.localScale = new Vector3(-dirX, 1, 1);
         }
-        else
+        else if (dirX == -1f)
         {
-            transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+            mainPlayer.transform.localScale = new Vector3(-dirX, 1, 1);
         }
        
         
