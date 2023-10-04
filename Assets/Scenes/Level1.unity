@@ -2493,12 +2493,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1879602496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1153972087
+=======
+--- !u!1 &1225568901 stripped
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3113796425851400123, guid: bdc1e99f04fdd354f915812445a0fd8e, type: 3}
+  m_PrefabInstance: {fileID: 509071626}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1153972090}
@@ -2512,17 +2516,25 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1153972088
+=======
+--- !u!114 &1225568902
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1153972087}
+=======
+  m_GameObject: {fileID: 1225568901}
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c8823e2250f5164782cf963fa970618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
@@ -2547,11 +2559,22 @@ MonoBehaviour:
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1153972090
+=======
+  npc: {fileID: 660642209}
+  window: {fileID: 209518649}
+  indicaor: {fileID: 804465143}
+  dialogueText: {fileID: 143243173}
+  dialogues:
+  - Hello Kavinda!
+  - 'Your journey has begun '
+  writingSpeed: 0.03
+--- !u!4 &1225568903 stripped
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5906961489920976093, guid: bdc1e99f04fdd354f915812445a0fd8e, type: 3}
+  m_PrefabInstance: {fileID: 509071626}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1153972087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2591,6 +2614,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5906961489920976093, guid: bdc1e99f04fdd354f915812445a0fd8e, type: 3}
   m_PrefabInstance: {fileID: 509071626}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
 --- !u!1001 &1247617940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3079,8 +3104,12 @@ Transform:
   m_LocalPosition: {x: -1.98, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+<<<<<<< HEAD
   m_Children:
   - {fileID: 1093998832}
+=======
+  m_Children: []
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1560908916
@@ -7687,4 +7716,7 @@ SceneRoots:
   - {fileID: 660642212}
   - {fileID: 684582223}
   - {fileID: 1560908915}
+<<<<<<< HEAD
   - {fileID: 1153972090}
+=======
+>>>>>>> parent of fd8007e (adding health bar to the enemy)
