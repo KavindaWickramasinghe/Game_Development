@@ -8,21 +8,34 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public Animator animator;
+
+
+    [SerializeField] FloatingHealthBar healthBar;
+    [SerializeField] GameObject HealthBar;
+
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
+
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.updateHealthBar(currentHealth, maxHealth);
+        
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        healthBar.updateHealthBar(currentHealth, maxHealth);
         // play damage animation
         animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
             Die();
+            Destroy(HealthBar);
         }
     }
 
