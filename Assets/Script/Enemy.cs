@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] FloatingHealthBar healthBar;
     [SerializeField] GameObject HealthBar;
+    [SerializeField] GameObject enemyObject;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Destroy(HealthBar);
+            Destroy(enemyObject);
         }
     }
 
@@ -45,7 +47,7 @@ public class Enemy : MonoBehaviour
         // die animation
 
         
-        animator.SetBool("isDie", true);
+        animator.SetTrigger("die");
 
         GetComponent<Rigidbody2D>().bodyType= RigidbodyType2D.Static;
         /// GetComponent<SpriteRenderer>().enabled = false;

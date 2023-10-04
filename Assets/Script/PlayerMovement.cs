@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
        
         
         
+
         
     }
 
@@ -83,8 +84,6 @@ public class PlayerMovement : MonoBehaviour
             // Debug.Log(dirX);
             state = MovementState.run;
 
-           
-
         }
 
         else
@@ -98,6 +97,9 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.jump;
 
         }
+
+
+
 
         
         

@@ -5,13 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] FloatingHealthBar healthBar;
+    [SerializeField] GameObject HealthBar;
+    int currentHealth;
+
     private Animator anim;
     private Rigidbody2D rb;
+
+
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
+
     private void Start()
     {
-       anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
         
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        healthBar.updateHealthBar(currentHealth, maxHealth);
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.updateHealthBar(currentHealth, maxHealth);
+        // play damage animation
+        anim.SetTrigger("Hurt");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+            Destroy(HealthBar);
+            ReastartLevel();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,9 +50,15 @@ public class PlayerLife : MonoBehaviour
         {
 
             Die();
-            
+            ReastartLevel();
+
+
         }
     }
+
+
+
+
 
     private void Die()
     {

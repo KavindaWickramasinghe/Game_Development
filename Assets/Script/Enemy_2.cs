@@ -9,10 +9,15 @@ public class Enemy_2 : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private float colliderDistance;
     [SerializeField] private BoxCollider2D boxCollider ;
-    [SerializeField] private LayerMask PlayeLayer;
-    private float cooldownTimer = Mathf.Infinity;
+    [SerializeField] private LayerMask PlayerLayer;
 
+
+    //public Transform attackPoint;
+
+    public int attackDamage = 10;
+    private float cooldownTimer = Mathf.Infinity;
     private Animator anim;
+
 
     private void Awake()
     {
@@ -30,6 +35,9 @@ public class Enemy_2 : MonoBehaviour
             {
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
+                Attack();
+
+
 
             }
 
@@ -38,11 +46,30 @@ public class Enemy_2 : MonoBehaviour
         
     }
 
+    // set enemy to attack
+    private void Attack()
+    {
+        // paly attack animation
+
+        // detect enimeis in range of the attack
+        Collider2D[] hitPlayer = Physics2D.OverlapBoxAll(boxCollider.bounds.center + colliderDistance * range * transform.localScale.x * transform.right,
+                    new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+                    0, PlayerLayer); 
+
+        // damage them
+        foreach (Collider2D player in hitPlayer)
+        {
+            Debug.Log("Hit the player");
+            player.GetComponent<PlayerLife>().TakeDamage(attackDamage);
+        }
+    }
+
+    // checking enemy detect the player
     private bool PlayerInSight()
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right*range*transform.localScale.x*colliderDistance,
             new Vector3(boxCollider.bounds.size.x*range,boxCollider.bounds.size.y,boxCollider.bounds.size.z),
-            0,Vector2.left,0, PlayeLayer);
+            0,Vector2.left,0, PlayerLayer);
             
 
         return hit.collider != null;
@@ -50,8 +77,8 @@ public class Enemy_2 : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x, 
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 }

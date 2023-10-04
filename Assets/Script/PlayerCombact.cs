@@ -46,7 +46,7 @@ public class PlayerCombact : MonoBehaviour
     {
         if (attackPoint == null)
             return;
-
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
