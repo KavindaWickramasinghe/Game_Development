@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public Animator animator;
+    private Rigidbody2D rb;
 
 
     [SerializeField] FloatingHealthBar healthBar;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthBar.updateHealthBar(currentHealth, maxHealth);
         
@@ -37,7 +39,8 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Destroy(HealthBar);
-            Destroy(enemyObject);
+            
+            rb.bodyType = RigidbodyType2D.Static;
         }
     }
 
@@ -55,4 +58,10 @@ public class Enemy : MonoBehaviour
         this.enabled = false;
 
     }
-}
+
+    public void RemoveDiedEnemy()
+    {
+        Destroy(enemyObject);
+    }
+}   
+
